@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://dygrkp7fpfxwe"]
+
+[ext_resource type="Script" path="res://MyTougleButton/tougle.gd" id="1_4d85m"]
+[ext_resource type="Texture2D" uid="uid://c1b8k5xmcu873" path="res://MyTougleButton/NotButtonChecked.png" id="1_rovre"]
+[ext_resource type="Texture2D" uid="uid://b61orf7ido3rs" path="res://MyTougleButton/ButtonChecked.png" id="2_7rhb2"]
+[ext_resource type="Script" path="res://MyTougleButton/Ball.gd" id="4_hm34s"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0n8xt"]
+absorbent = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_bg3aw"]
+radius = 14.0
+height = 28.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qyybl"]
+radius = 14.0
+
+[node name="Tougle" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_4d85m")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "何かをチェックする"
+
+[node name="TougleButton" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_rovre")
+texture_pressed = ExtResource("2_7rhb2")
+texture_focused = ExtResource("2_7rhb2")
+
+[node name="Ball" type="RigidBody2D" parent="HBoxContainer/TougleButton"]
+physics_material_override = SubResource("PhysicsMaterial_0n8xt")
+script = ExtResource("4_hm34s")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="HBoxContainer/TougleButton/Ball"]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="HBoxContainer/TougleButton/Ball"]
+mesh = SubResource("SphereMesh_bg3aw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/TougleButton/Ball"]
+shape = SubResource("CircleShape2D_qyybl")
+
+[connection signal="pressed" from="HBoxContainer/TougleButton" to="." method="_on_tougle_button_pressed"]
+[connection signal="screen_exited" from="HBoxContainer/TougleButton/Ball/VisibleOnScreenNotifier2D" to="HBoxContainer/TougleButton/Ball" method="_on_visible_on_screen_notifier_2d_screen_exited"]
