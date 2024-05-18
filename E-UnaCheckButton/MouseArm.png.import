@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b61orf7ido3rs"
-path="res://.godot/imported/ButtonChecked.png-ecf503f24f772c2ae54c0e626f11ae6a.ctex"
+uid="uid://blqqwttdfno5l"
+path="res://.godot/imported/MouseArm.png-dca6b7a8b2685d1d313f29b9a263a618.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://MyTougleButton/ButtonChecked.png"
-dest_files=["res://.godot/imported/ButtonChecked.png-ecf503f24f772c2ae54c0e626f11ae6a.ctex"]
+source_file="res://E-UnaCheckButton/MouseArm.png"
+dest_files=["res://.godot/imported/MouseArm.png-dca6b7a8b2685d1d313f29b9a263a618.ctex"]
 
 [params]
 

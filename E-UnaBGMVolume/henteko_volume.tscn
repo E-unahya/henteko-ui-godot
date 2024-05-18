@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://bbwdwyosyhmk5"]
+
+[ext_resource type="Script" path="res://E-UnaBGMVolume/henteko_volume.gd" id="1_qawos"]
+[ext_resource type="AudioStream" uid="uid://dkoj1pm64shsh" path="res://marbletechno1.mp3" id="1_w6nur"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kv4u8"]
+albedo_color = Color(0.309804, 0.309804, 0.309804, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_y68su"]
+material = SubResource("StandardMaterial3D_kv4u8")
+size = Vector2(140, 30)
+center_offset = Vector3(-64, 0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qm2ra"]
+size = Vector2(140, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppyuc"]
+size = Vector2(20, 65)
+
+[sub_resource type="SphereMesh" id="SphereMesh_qrwtl"]
+radius = 8.0
+height = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_echnn"]
+radius = 8.0
+
+[node name="HentekoVolume" type="StaticBody2D"]
+position = Vector2(-8, -152)
+input_pickable = true
+script = ExtResource("1_qawos")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -224.0
+offset_top = -12.0
+offset_right = -141.0
+offset_bottom = 11.0
+text = "BGMの音量"
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+mesh = SubResource("QuadMesh_y68su")
+
+[node name="Floor" type="CollisionShape2D" parent="."]
+position = Vector2(-64, 0)
+shape = SubResource("RectangleShape2D_qm2ra")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-64, -48)
+shape = SubResource("RectangleShape2D_qm2ra")
+
+[node name="Wall" type="CollisionShape2D" parent="."]
+position = Vector2(-144, -25.5)
+shape = SubResource("RectangleShape2D_ppyuc")
+
+[node name="Wall2" type="CollisionShape2D" parent="."]
+position = Vector2(16, -25)
+shape = SubResource("RectangleShape2D_ppyuc")
+
+[node name="Bar" type="RigidBody2D" parent="."]
+position = Vector2(-120, -24)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Bar"]
+mesh = SubResource("SphereMesh_qrwtl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bar"]
+shape = SubResource("CircleShape2D_echnn")
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_w6nur")
+autoplay = true

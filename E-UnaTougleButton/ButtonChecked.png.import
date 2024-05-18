@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1b8k5xmcu873"
-path="res://.godot/imported/NotButtonChecked.png-4db16aa3e42071aeceaac0ade9eddece.ctex"
+uid="uid://b61orf7ido3rs"
+path="res://.godot/imported/ButtonChecked.png-1bcee94d5ec6df1ea3f7ee890ece96d4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://MyTougleButton/NotButtonChecked.png"
-dest_files=["res://.godot/imported/NotButtonChecked.png-4db16aa3e42071aeceaac0ade9eddece.ctex"]
+source_file="res://E-UnaTougleButton/ButtonChecked.png"
+dest_files=["res://.godot/imported/ButtonChecked.png-1bcee94d5ec6df1ea3f7ee890ece96d4.ctex"]
 
 [params]
 

@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://dygrkp7fpfxwe"]
 
-[ext_resource type="Script" path="res://MyTougleButton/tougle.gd" id="1_4d85m"]
-[ext_resource type="Texture2D" uid="uid://c1b8k5xmcu873" path="res://MyTougleButton/NotButtonChecked.png" id="1_rovre"]
-[ext_resource type="Texture2D" uid="uid://b61orf7ido3rs" path="res://MyTougleButton/ButtonChecked.png" id="2_7rhb2"]
-[ext_resource type="Script" path="res://MyTougleButton/Ball.gd" id="4_hm34s"]
+[ext_resource type="Script" path="res://E-UnaTougleButton/tougle.gd" id="1_4d85m"]
+[ext_resource type="Texture2D" uid="uid://c1b8k5xmcu873" path="res://E-UnaTougleButton/NotButtonChecked.png" id="1_rovre"]
+[ext_resource type="Texture2D" uid="uid://b61orf7ido3rs" path="res://E-UnaTougleButton/ButtonChecked.png" id="2_7rhb2"]
+[ext_resource type="Script" path="res://E-UnaTougleButton/Ball.gd" id="4_hm34s"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0n8xt"]
 absorbent = true
@@ -18,6 +18,8 @@ radius = 14.0
 [node name="Tougle" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+offset_right = 32.0
+offset_bottom = 32.0
 script = ExtResource("1_4d85m")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]

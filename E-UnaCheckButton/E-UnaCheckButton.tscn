@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://c0h7e6rfhafu5"]
+
+[ext_resource type="Script" path="res://E-UnaCheckButton/E-UnaCheckButton.gd" id="1_hwlhm"]
+[ext_resource type="Texture2D" uid="uid://c826s3nxy415q" path="res://E-UnaCheckButton/normalbutton.jpg" id="2_lk7qx"]
+[ext_resource type="Texture2D" uid="uid://cr3ni6oim0830" path="res://E-UnaCheckButton/pressbutton.jpg" id="3_5xrgw"]
+[ext_resource type="Texture2D" uid="uid://6o1urrxd84hw" path="res://E-UnaCheckButton/AcceptMark.png" id="4_58wy3"]
+[ext_resource type="Texture2D" uid="uid://blqqwttdfno5l" path="res://E-UnaCheckButton/MouseArm.png" id="5_fnhuw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_126tl"]
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8y6ga"]
+radius = 32.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5v2hc"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wwv50"]
+size = Vector2(59, 40)
+
+[node name="E-UnaCheckButton" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1248.0
+offset_bottom = -608.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hwlhm")
+
+[node name="ButtonContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 197.0
+offset_bottom = 32.0
+
+[node name="TextureButton" type="TextureButton" parent="ButtonContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_lk7qx")
+texture_pressed = ExtResource("3_5xrgw")
+
+[node name="Label" type="Label" parent="ButtonContainer"]
+layout_mode = 2
+text = "緑のマークを捕まえてね♡"
+label_settings = SubResource("LabelSettings_126tl")
+
+[node name="AcceptMark" type="Sprite2D" parent="."]
+texture = ExtResource("4_58wy3")
+
+[node name="AcceptMarkArea" type="Area2D" parent="AcceptMark"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AcceptMark/AcceptMarkArea"]
+shape = SubResource("CircleShape2D_8y6ga")
+disabled = true
+
+[node name="GoalArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalArea"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_5v2hc")
+
+[node name="MousePointer" type="Sprite2D" parent="."]
+texture = ExtResource("5_fnhuw")
+
+[node name="MouseArea" type="Area2D" parent="MousePointer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MousePointer/MouseArea"]
+position = Vector2(-0.5, 10)
+shape = SubResource("RectangleShape2D_wwv50")
+
+[connection signal="pressed" from="ButtonContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="area_entered" from="AcceptMark/AcceptMarkArea" to="." method="_on_accept_mark_area_area_entered"]
+[connection signal="area_entered" from="GoalArea" to="." method="_on_goal_area_area_entered"]

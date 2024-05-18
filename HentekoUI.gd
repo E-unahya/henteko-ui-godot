@@ -1,21 +1,19 @@
 extends Node2D
-@onready var floor: StaticBody2D = $Floor
-@onready var bgm: AudioStreamPlayer = $BGM
-@onready var bar: RigidBody2D = $Floor/Bar
-var rotation_flag : bool
+@onready var game_start_button: Button = $GameStartButton
+@onready var tougle_button_accept: Button = $TougleButtonAccept
 
+
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	rotation_flag = false
+	game_start_button.hide()
+	tougle_button_accept.hide()
 
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if rotation_flag:
-		floor.rotation += get_global_mouse_position().y * 0.0001
-	bgm.volume_db = bar.position.x
+	pass
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("LeftMouse"):
-		bar.freeze = false
-		rotation_flag = true
-	if event.is_action_released("LeftMouse"):
-		rotation_flag = false
-		bar.freeze = true
+func _on_e_una_check_button_2_accept() -> void:
+	game_start_button.show()
+
+func _on_tougle_checked() -> void:
+	tougle_button_accept.show()
