@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvdlnpapd3xan"
-path.s3tc="res://.godot/imported/DL00017_bule_sky.jpg-41ab1f3cd4f4294ed6733ffcf4026104.s3tc.ctex"
+uid="uid://bresdvha12tvm"
+path.s3tc="res://.godot/imported/bannerModern.png-32ce3551e5fa1a0c4d3abc9087544688.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://DL00017_bule_sky.jpg"
-dest_files=["res://.godot/imported/DL00017_bule_sky.jpg-41ab1f3cd4f4294ed6733ffcf4026104.s3tc.ctex"]
+source_file="res://E-UnaDancingText/bannerModern.png"
+dest_files=["res://.godot/imported/bannerModern.png-32ce3551e5fa1a0c4d3abc9087544688.s3tc.ctex"]
 
 [params]
 

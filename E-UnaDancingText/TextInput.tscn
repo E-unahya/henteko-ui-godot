@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://dp6mq0ejavgxx"]
+
+[ext_resource type="FontFile" uid="uid://cdoug36apk13h" path="res://E-UnaDancingText/Rock_3D/Rock3D-Regular.ttf" id="1_jena0"]
+[ext_resource type="Material" uid="uid://cra1r7koy0q2q" path="res://E-UnaDancingText/TextColorMaterial.tres" id="1_l0cgv"]
+[ext_resource type="Script" path="res://E-UnaDancingText/TextInput.gd" id="2_g7ixi"]
+
+[sub_resource type="TextMesh" id="TextMesh_gv3gb"]
+material = ExtResource("1_l0cgv")
+text = "ほげほげフーバー
+ねっちょりなッポリタン
+"
+font = ExtResource("1_jena0")
+horizontal_alignment = 0
+vertical_alignment = 0
+pixel_size = 0.05
+
+[node name="TextInput" type="MeshInstance3D"]
+mesh = SubResource("TextMesh_gv3gb")
+script = ExtResource("2_g7ixi")

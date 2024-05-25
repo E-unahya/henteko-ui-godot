@@ -3,7 +3,6 @@ extends Node2D
 @onready var tougle_button_accept: Button = $TougleButtonAccept
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	game_start_button.hide()
 	tougle_button_accept.hide()

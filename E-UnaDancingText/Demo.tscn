@@ -1,0 +1,160 @@
+[gd_scene load_steps=16 format=3 uid="uid://vyyk13jnou6e"]
+
+[ext_resource type="Script" path="res://E-UnaDancingText/Demo.gd" id="1_abo0n"]
+[ext_resource type="PackedScene" uid="uid://dp6mq0ejavgxx" path="res://E-UnaDancingText/TextInput.tscn" id="1_ytkx6"]
+[ext_resource type="Texture2D" uid="uid://dbq2ca66hee1j" path="res://E-UnaDancingText/shipGreen_manned.png" id="2_ogson"]
+[ext_resource type="Texture2D" uid="uid://cvdlnpapd3xan" path="res://DL00017_bule_sky.jpg" id="3_pluwv"]
+[ext_resource type="Texture2D" uid="uid://bresdvha12tvm" path="res://E-UnaDancingText/bannerModern.png" id="3_wluki"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kacg8"]
+shading_mode = 0
+diffuse_mode = 1
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("3_wluki")
+
+[sub_resource type="QuadMesh" id="QuadMesh_n3wy5"]
+material = SubResource("StandardMaterial3D_kacg8")
+size = Vector2(36, 7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m3l4n"]
+size = Vector3(30, 10, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4jvfl"]
+size = Vector3(31, 1, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ckqr8"]
+size = Vector3(30, 30, 1)
+
+[sub_resource type="Animation" id="Animation_3uvqy"]
+resource_name = "Damage"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.823529, 0.0392157, 0.0745098, 0.811765), Color(0.823529, 0.0392157, 0.0745098, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wktke"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.823529, 0.0392157, 0.0745098, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_l86wt"]
+resource_name = "Seikai"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.25098, 0.878431, 0.815686, 0.811765), Color(0.823529, 0.0392157, 0.0745098, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bhbvl"]
+_data = {
+"Damage": SubResource("Animation_3uvqy"),
+"RESET": SubResource("Animation_wktke"),
+"Seikai": SubResource("Animation_l86wt")
+}
+
+[sub_resource type="Theme" id="Theme_e6sas"]
+
+[node name="Demo" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+script = ExtResource("1_abo0n")
+
+[node name="TextInput" parent="." instance=ExtResource("1_ytkx6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -4, 1)
+message = "犬も歩けば棒に当たる"
+
+[node name="MessageWindow" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -6, 0)
+mesh = SubResource("QuadMesh_n3wy5")
+
+[node name="GravityArea" type="Area3D" parent="MessageWindow"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+gravity_space_override = 3
+gravity_point = true
+gravity_point_unit_distance = 10.0
+linear_damp_space_override = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MessageWindow/GravityArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+shape = SubResource("BoxShape3D_m3l4n")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -6, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.15796, 0, 0)
+shape = SubResource("BoxShape3D_4jvfl")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 9)
+fov = 90.0
+
+[node name="Area3D" type="Area3D" parent="Camera3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/Area3D"]
+shape = SubResource("BoxShape3D_ckqr8")
+
+[node name="Character" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3, -7)
+pixel_size = 0.1
+texture = ExtResource("2_ogson")
+
+[node name="BackGround" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3, -17)
+pixel_size = 0.1
+texture = ExtResource("3_pluwv")
+
+[node name="DamageColor" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.823529, 0.0392157, 0.0745098, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DamageColor"]
+libraries = {
+"": SubResource("AnimationLibrary_bhbvl")
+}
+
+[node name="LineEdit" type="LineEdit" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_e6sas")
+placeholder_text = "正解を入力してね"
+
+[node name="SE" type="AudioStreamPlayer" parent="."]
+
+[connection signal="all_text_shutsuryoku_zumi" from="TextInput" to="." method="_on_text_input_all_text_shutsuryoku_zumi"]
+[connection signal="body_entered" from="Camera3D/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
