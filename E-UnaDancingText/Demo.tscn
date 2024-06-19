@@ -86,7 +86,10 @@ script = ExtResource("1_abo0n")
 
 [node name="TextInput" parent="." instance=ExtResource("1_ytkx6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -4, 1)
-message = "犬も歩けば棒に当たる"
+message = "親譲りの無鉄砲で小供の時から損ばかりしている。
+小学校に居る時分学校の二階から
+飛び降りて一週間ほど腰を抜かした事がある。
+なぜそんな無闇をしたと聞く人があるかも知れぬ。"
 
 [node name="MessageWindow" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -6, 0)

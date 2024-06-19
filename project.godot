@@ -10,12 +10,19 @@ config_version=5
 
 [application]
 
+config/name="HENTEKO_UI"
 config/features=PackedStringArray("4.2")
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=640
+window/stretch/scale_mode="integer"
+window/per_pixel_transparency/allowed=true
+
+[editor]
+
+movie_writer/movie_file="C:/Users/65tou/developGame/GodotEngine/Movie/HentekoUI.avi"
 
 [input]
 
