@@ -4,5 +4,5 @@
 
 [resource]
 atlas = ExtResource("1_yktpq")
-region = Rect2(680, 704, 64, 72)
-metadata/input_char = "ゃ"
+region = Rect2(896, 696, 72, 80)
+metadata/input_char = "ゅ"

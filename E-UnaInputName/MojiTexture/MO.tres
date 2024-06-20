@@ -5,3 +5,4 @@
 [resource]
 atlas = ExtResource("1_0l7fk")
 region = Rect2(456, 608, 72, 72)
+metadata/input_char = "も"

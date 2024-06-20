@@ -1,0 +1,8 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://cq1g0tj7hgn2o"]
+
+[ext_resource type="Texture2D" uid="uid://ba1cpubulnmin" path="res://E-UnaInputName/MojiTexture/50On.png" id="1_0itul"]
+
+[resource]
+atlas = ExtResource("1_0itul")
+region = Rect2(1120, 696, 64, 80)
+metadata/input_char = "ょ"

@@ -5,3 +5,4 @@
 [resource]
 atlas = ExtResource("1_jupyl")
 region = Rect2(464, 320, 64, 72)
+metadata/input_char = "と"

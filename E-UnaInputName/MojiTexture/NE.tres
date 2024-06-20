@@ -5,3 +5,4 @@
 [resource]
 atlas = ExtResource("1_qudod")
 region = Rect2(352, 416, 72, 72)
+metadata/input_char = "ね"
