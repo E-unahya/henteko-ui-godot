@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ba1cpubulnmin" path="res://E-UnaInputName/MojiTexture/50On.png" id="1_62k28"]
 
 [resource]
+resource_name = "う"
 atlas = ExtResource("1_62k28")
 region = Rect2(248, 24, 56, 80)
 metadata/input_char = "う"
