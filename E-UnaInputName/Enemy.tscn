@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://hf2mpsmtdkdg"]
+
+[ext_resource type="Texture2D" uid="uid://c3ay3ay8bn8md" path="res://E-UnaInputName/tilemap-characters_packed.png" id="1_3sirq"]
+[ext_resource type="Script" path="res://E-UnaInputName/Enemy.gd" id="1_gaerl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8l2so"]
+atlas = ExtResource("1_3sirq")
+region = Rect2(72, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8e0ov"]
+atlas = ExtResource("1_3sirq")
+region = Rect2(96, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckvk8"]
+atlas = ExtResource("1_3sirq")
+region = Rect2(120, 48, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rn71m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8l2so")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8e0ov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckvk8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfowc"]
+size = Vector2(16, 16)
+
+[node name="Enemy" type="Area2D" groups=["Enemy"]]
+script = ExtResource("1_gaerl")
+
+[node name="CharacterAnimation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rn71m")
+frame_progress = 0.900878
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yfowc")
