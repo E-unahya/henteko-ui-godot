@@ -1,9 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://c25cqywpra3lo"]
+[gd_scene load_steps=11 format=3 uid="uid://c25cqywpra3lo"]
 
 [ext_resource type="Script" path="res://E-UnaInputName/InputStage.gd" id="1_5q4n7"]
 [ext_resource type="PackedScene" uid="uid://brn2rl6k6c3oo" path="res://E-UnaInputName/Player.tscn" id="1_7w7h0"]
 [ext_resource type="PackedScene" uid="uid://d0agkxsf6e6pt" path="res://E-UnaInputName/MojiCoin.tscn" id="2_7icqv"]
 [ext_resource type="Texture2D" uid="uid://daobdihk8pe40" path="res://E-UnaInputName/tilemap_packed.png" id="3_h6pdw"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0kso1"]
+friction = 0.0
+rough = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ougk"]
 texture = ExtResource("3_h6pdw")
@@ -726,6 +730,7 @@ separation = Vector2i(2, 2)
 
 [sub_resource type="TileSet" id="TileSet_gsxsm"]
 physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_0kso1")
 terrain_set_0/mode = 0
 sources/0 = SubResource("TileSetAtlasSource_1ougk")
 

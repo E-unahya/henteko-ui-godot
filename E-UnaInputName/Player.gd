@@ -72,3 +72,6 @@ func _on_door_area_body_exited(body):
 	if body.name == "Player":
 		label.hide()
 		kettei = false
+
+func _seppuku():
+	harakiri.emit()
